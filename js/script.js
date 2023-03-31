@@ -8,6 +8,13 @@ function cuenta() {
     num2 = parseInt(num2);
     if(num2=='') num2=0;
     if(operator=='/') {
+        if(num2 == 0) {
+            ret = 'xd';
+            num1 = '';
+            num2 = ''
+            operator = '';
+            return ret;
+        }
         ret = num1 / num2;
     }
     else if(operator=='*') {
@@ -57,3 +64,6 @@ for(i=0; i < numeros.length; i++) {
         }
     })
 }
+
+// CSS
+//Operadores

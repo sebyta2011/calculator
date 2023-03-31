@@ -1,0 +1,61 @@
+html, body {
+    height:100%;
+    margin:0;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#contenedor {
+    /* justify-content:center; */
+    align-self: center;
+    display: flex;
+    align-items: center;
+    background: grey;
+    height: 600px;
+    width: 500px;
+    flex-direction: column;
+}
+
+button {
+    width: 60px;
+    height: 60px;
+    margin: 1px;
+}
+
+#cero {
+    width: 126px;
+}
+
+.numero:hover{
+    background-color:rgb(253, 210, 141);
+    transition-duration:0.3s;
+}
+
+.operador {
+    margin-bottom: 30px;
+}
+
+.operador:hover {
+    background-color: rgb(201, 143, 51);
+    transition-duration: 0.3s;
+}
+
+#pantalla {
+    margin: 50px auto;
+    height:70px;
+    width: 400px;
+    background-color: black;
+}
+
+#teclado {
+    display:flex;
+}
+
+#numeros {
+    width: 200px;
+}
+
+#operadores {
+    width: 150px;
+}
