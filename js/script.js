@@ -1,9 +1,12 @@
-let num1 = [];
+let num1 = '';
 let operator = '';
-let num2 = [];
+let num2 = '';
 
-function cuenta(num1, operator, num2) {
+function cuenta() {
     let ret = 0;
+    num1 = parseInt(num1);
+    num2 = parseInt(num2);
+    if(num2=='') num2=0;
     if(operator=='/') {
         ret = num1 / num2;
     }
@@ -14,22 +17,43 @@ function cuenta(num1, operator, num2) {
     }else if(operator=='+') {
         ret = num1 + num2;
     }
-    return ret;
+    if(ret!=0) num1=ret;
+    operator = '';
+    num2 = '';
+    console.log(num1);
 }
 
+let operadores = document.getElementsByClassName("operador");
+for(i=0; i < operadores.length; i++) {
+    operadores[i].addEventListener("click", function() {
+        if(num2 != ''){
+            cuenta()
+        }
+        operator = (this.value.toString());
+    }
+)}
 
-// document.getElementById('nueve').addEventListener("click", function() {
-//     num1.push(nueve.value.toString());
-// });
+let clear = document.getElementById("clear");
+clear.addEventListener("click", function() {
+    num1 = '';
+    operator = '';
+    num2 = '';
+})
+
+let operacionTriunfo = document.getElementById("operar");
+operacionTriunfo.addEventListener("click", function() {
+    cuenta();
+})
 
 let numeros = document.getElementsByClassName("numero");
 for(i=0; i < numeros.length; i++) {
     numeros[i].addEventListener("click", function() {
-        num1.push(this.value.toString());
+        console.log(this.value);
+        if(operator == ''){
+        num1 += (this.value.toString());
+        }
+        else {
+        num2 += (this.value.toString());
+        }
     })
 }
-
-
-// document.getElementsByClassName("numero").addEventListener("click", function() {
-//     num1.push(numero.value.toString());
-// })
