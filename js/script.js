@@ -10,7 +10,7 @@ function cuenta() {
     if(operator=='/') {
         if(num2 == 0) {
             ret = 'xd';
-            num1 = '';
+            num1 = 'xd';
             num2 = ''
             operator = '';
             return ret;
@@ -37,6 +37,7 @@ for(i=0; i < operadores.length; i++) {
             cuenta()
         }
         operator = (this.value.toString());
+        screen();
     }
 )}
 
@@ -45,25 +46,36 @@ clear.addEventListener("click", function() {
     num1 = '';
     operator = '';
     num2 = '';
+    pantalla.textContent= '0'
 })
 
 let operacionTriunfo = document.getElementById("operar");
 operacionTriunfo.addEventListener("click", function() {
     cuenta();
+    screen();
 })
 
 let numeros = document.getElementsByClassName("numero");
 for(i=0; i < numeros.length; i++) {
     numeros[i].addEventListener("click", function() {
-        console.log(this.value);
         if(operator == ''){
         num1 += (this.value.toString());
         }
         else {
         num2 += (this.value.toString());
         }
+        screen();
     })
 }
 
-// CSS
-//Operadores
+let pantalla = document.getElementById('pantalla');
+
+function screen() {
+    pantalla.textContent= num1 + operator + num2
+}
+
+
+/* no toma numeros negativos
+las restas entre numeros iguales dan num1, no 0
+despues de apretar un boton cuando se hace una cuenta, num1 no se reinicia
+no toma numeros con decimales, se puede poner mas de un punto*/
